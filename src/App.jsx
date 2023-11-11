@@ -55,7 +55,7 @@ function App() {
     fetchAdvice();
   }, []);
   return (
-    <Card>
+    <Card className={loading && "card-loading"}>
       {loading ? (
         <Loading />
       ) : (
