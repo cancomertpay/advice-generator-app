@@ -1,0 +1,242 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap');
+
+
+body {
+  font-family: 'Manrope', sans-serif;
+  min-height: 100vh;
+  background-color: hsl(218, 23%, 16%)
+  ;
+  box-sizing: border-box;
+}
+
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.card {
+  background-color: hsl(217, 19%, 24%);
+  width: 350px;
+  border-radius: 10px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 2rem;
+
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  
+  animation: slideIn 0.5s ease-out;
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 10px 10px 20px hsla(150, 100%, 66%, 0.24);
+}
+
+.box-effect {
+  animation: neonGlow 4s infinite linear;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.advice-header {
+  font-size: 14px;
+  letter-spacing: 5px;
+  color: hsl(150, 100%, 66%);
+
+  padding: 2rem;
+  margin: 0;
+
+  text-align: center;
+
+  animation: pulse 2s infinite;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.advice-header:hover {
+  animation-play-state: paused;
+}
+
+.advice-body {
+  font-size: 28px;
+  text-align: center;
+  color: hsl(193, 38%, 86%);
+  margin: 0;
+  overflow: hidden;
+}
+
+.pattern-divider {
+  padding: 2rem;
+  animation: pulse 2s infinite;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.button-container {
+  z-index: 10;
+  background-color: hsl(150, 100%, 66%);
+  border-radius: 50%;
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  position: absolute;
+  left: 50%;
+  bottom: -40px;
+  transform: translateX(-50%);
+  margin-top: -25px;
+
+  transition: box-shadow 0.3s ease-in-out;
+
+  cursor: pointer;
+}
+
+.button-container button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.button-container:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); 
+}
+
+/* button loading */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.button-container.loading button img {
+  animation: rotate 1s infinite linear;
+}
+
+.button-container button img {
+  animation-play-state: paused;
+}
+
+/* spinner */
+.lds-grid {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-grid div {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  animation: lds-grid 1.2s linear infinite;
+}
+.lds-grid div:nth-child(1) {
+  top: 8px;
+  left: 8px;
+  animation-delay: 0s;
+}
+.lds-grid div:nth-child(2) {
+  top: 8px;
+  left: 32px;
+  animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(3) {
+  top: 8px;
+  left: 56px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(4) {
+  top: 32px;
+  left: 8px;
+  animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(5) {
+  top: 32px;
+  left: 32px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(6) {
+  top: 32px;
+  left: 56px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(7) {
+  top: 56px;
+  left: 8px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(8) {
+  top: 56px;
+  left: 32px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(9) {
+  top: 56px;
+  left: 56px;
+  animation-delay: -1.6s;
+}
+@keyframes lds-grid {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+#desktop-pattern-divider {
+ display: none;
+}
+
+/* LG-DEVICES */
+@media (min-width: 1440px) {
+  .card {
+    width: 650px;
+  }
+
+  #mobile-pattern-divider {
+    display: none;
+  }
+
+  #desktop-pattern-divider {
+    display:block;
+   }
+}
