@@ -23,7 +23,7 @@ function App() {
         );
 
         if (response.status === 404) {
-          throw new Error("Something went wrong, please refresh page");
+          throw new Error("Something went wrong, please refresh the page");
         }
 
         if (response.ok) {

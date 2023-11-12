@@ -1,7 +1,7 @@
 import React from "react";
 import iconDice from "../../assets/images/icon-dice.svg";
 
-function Button({loading, ...props}) {
+function Button({ loading, ...props }) {
   return (
     <div {...props} className={`button-container ${loading ? "loading" : ""}`}>
       <button disabled={loading}>
