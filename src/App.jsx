@@ -11,7 +11,6 @@ function App() {
   const fetchAdvice = async () => {
     try {
       setLoading(true);
-
       /*
         In the code block below, I intentionally sent an ID with a random number because if the API is requested again within 2 seconds, it returns the same result again. To prevent this, I prefer to generate a random number and send a request with an ID each time the function is called.
       */
@@ -22,10 +21,6 @@ function App() {
           `https://api.adviceslip.com/advice/${randomNumber}`
         );
 
-        if (response.status === 404) {
-          throw new Error("Something went wrong, please refresh the page");
-        }
-
         if (response.ok) {
           const result = await response.json();
           if (result?.message?.type !== "error") {
@@ -34,6 +29,7 @@ function App() {
           }
         } else {
           throw new Error("Something went wrong, please refresh the page");
+          break;
         }
       } while (true);
     } catch (err) {
